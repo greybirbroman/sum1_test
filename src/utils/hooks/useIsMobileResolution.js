@@ -19,7 +19,8 @@ export const useIsMobileResolution = ( mobileResolution ) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [mobileResolution]);
+    
+}, [mobileResolution]);
 
   return isMobile;
 };
