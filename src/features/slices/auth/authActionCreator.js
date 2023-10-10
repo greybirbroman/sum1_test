@@ -3,12 +3,22 @@ import { register, authorization } from '../../../utils/api';
 import { IS_LOGGED_IN, REGISTER_SUCCESS, CURRENT_USER } from '../../constants';
 import {
   setUser,
+  setIsLoggedIn,
   setErrorMessage,
   setSuccessMessage,
   logoutUser,
 } from './authSlice';
 
 import { authErrors } from './authErrors';
+
+export const checkIsLoggedIn = () => (dispatch) => {
+  const loggedIn = localStorage.getItem(IS_LOGGED_IN)
+  const user = JSON.parse(localStorage.getItem(CURRENT_USER))
+  if(loggedIn && user) {
+    dispatch(setUser(user))
+    dispatch(setIsLoggedIn(loggedIn))
+  }
+}
 
 export const registerUserAction = (userData) => async (dispatch) => {
   try {
@@ -26,6 +36,7 @@ export const loginUserAction = (userData) => async (dispatch) => {
     const response = await authorization(userData);
     if (response.user) {
       dispatch(setUser(response.user));
+      dispatch(setIsLoggedIn(true))
       localStorage.setItem(IS_LOGGED_IN, 'true');
       localStorage.setItem(CURRENT_USER, JSON.stringify(response.user));
     }

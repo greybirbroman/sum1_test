@@ -1,11 +1,18 @@
 import React from 'react';
 import PrimaryLink from './PrimaryLink';
+import { socials } from '../utils/constants';
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className='flex flex-col justify-center items-center cursor-default z-10'>
-     <PrimaryLink title='Roman Fedorov' to='https://github.com/greybirbroman' target/>
+      <ul className='flex items-center gap-2'>
+        {socials.map((social) => (
+          <li key={social.id}>
+            <PrimaryLink title={social.title} to={social.link} target />
+          </li>
+        ))}
+      </ul>
       <time>&#169;{year}</time>
     </footer>
   );

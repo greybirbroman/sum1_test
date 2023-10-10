@@ -7,7 +7,7 @@
 ![tailwind](https://img.shields.io/badge/tailwind-black?style=for-the-badge&logo=tailwindcss&logoColor=#06b6d4)
 ![framer](https://img.shields.io/badge/framer_motion-black?style=for-the-badge&logo=framer&logoColor=#06b6d4)
 
-Deploy [Vercel]()
+Deploy [Vercel](https://sum1-test.vercel.app/)
 
 
 <img src='./readme_screen.png' width='700px'/>
@@ -24,6 +24,8 @@ npm run dev
 # or
 yarn dev
 ```
+
+Пароль для всех тестовых пользователей: ```123456```
 
 ## Технические требования:
 Реализовать приложение (SPA), которое умеет показывать следующие страницы:
