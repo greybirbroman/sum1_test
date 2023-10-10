@@ -1,21 +1,33 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
 import Form from './Form';
 import Fieldset from './Fieldset';
 import PrimaryButton from './PrimaryButton';
+import PrimaryLink from './PrimaryLink';
 import useFormWithValidation from '../utils/hooks/useFormWithValidation';
+import { registerUserAction } from '../features/slices/auth/authActionCreator';
+import { getSuccessMessage } from '../features/selectors/authSelectors';
 
 const RegisterForm = () => {
   const { values, errors, handleChange, validatePasswordMatch, isValid } =
     useFormWithValidation();
+  const dispatch = useDispatch();
+  const isSuccess = useSelector(getSuccessMessage);
 
   useEffect(() => {
     validatePasswordMatch();
   }, [values.password, values.confirmPassword]);
 
   const handleSubmit = (e) => {
+    console.log('submit');
     e.preventDefault();
+    const userData = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+    dispatch(registerUserAction(userData));
   };
 
   return (
@@ -79,12 +91,16 @@ const RegisterForm = () => {
           Политикой конфиденциальности.
         </Link>
       </span>
-      <PrimaryButton
-        title='Регистрация'
-        type='submit'
-        onClick={handleSubmit}
-        disabled={!isValid}
-      />
+      {isSuccess ? (
+        <PrimaryLink title='Войти' to='/login' align='self-center'/>
+      ) : (
+        <PrimaryButton
+          title='Регистрация'
+          type='submit'
+          onClick={handleSubmit}
+          disabled={!isValid}
+        />
+      )}
     </Form>
   );
 };

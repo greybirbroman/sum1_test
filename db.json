@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "email": "jane@smith.com",
+      "password": "$2a$10$VWdChxB8GIIJ4ukPFbKyle4kjUwncHCRatu/czin0sZd2zso9B1OO",
+      "name": "jane",
+      "id": 1
+    },
+    {
+      "email": "romfedorov@ya.ru",
+      "password": "$2a$10$jtWyXlbGON.u37JT7.pJO.S4MxwPa9a8DyfweBezcNrB2Fg0E/Ywi",
+      "name": "roman",
+      "id": 2
+    },
+    {
+      "email": "roman@ya.ru",
+      "password": "$2a$10$vLJj1DpZ9QmLF8vX51RqAedTI4ag0RKmOz9YaTSjPvIApORFOytEm",
+      "name": "roman",
+      "id": 3
+    }
+  ]
+}

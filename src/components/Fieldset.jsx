@@ -36,7 +36,7 @@ const Fieldset = ({
       </label>
       <div className='flex items-center justify-between relative'>
         <input
-          className='outline-none py-2 px-5 rounded-md w-full placeholder:text-gray-300'
+          className='outline-none py-2 px-5 rounded-md w-full placeholder:text-gray-300 focus:ring focus:ring-slate-300'
           id={name}
           name={name}
           type={type === 'password' && isPasswordVisible ? 'text' : type}

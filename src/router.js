@@ -3,7 +3,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { Layout, Main, Login, Register, Profile } from './pages';
+import { Layout, Main, Login, Register, Profile, NotFound } from './pages';
+import ProtectedRoute from './components/hoc/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,8 +12,15 @@ const router = createBrowserRouter(
       <Route index element={<Main />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/profile' element={<Profile />} />
-      {/* <Route path='*' element={<NotFoundPage />} /> */}
+      <Route
+        path='/profile'
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 );

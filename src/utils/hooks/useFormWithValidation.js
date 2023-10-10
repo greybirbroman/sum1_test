@@ -26,17 +26,15 @@ const useFormWithValidation = () => {
         const target = event.target;
         const { name, value } = target;
     
-        // Вызов функции для очистки входных данных
         const sanitizedValue = sanitizeFieldValue(value);
     
-        // Обновить значение поля после очистки
         setValues((prevValues) => ({
           ...prevValues,
           [name]: sanitizedValue,
         }));
         setErrors((prevErrors) => ({
           ...prevErrors,
-          [name]: target.validationMessage,
+          [name]: name !== 'confirmPassword' && target.validationMessage,
         }));
         setIsValid(target.closest('form').checkValidity());
       };
@@ -45,7 +43,7 @@ const useFormWithValidation = () => {
         if (values.password !== values.confirmPassword) {
           setErrors((prevErrors) => ({
             ...prevErrors,
-            confirmPassword: 'Пароли не совпадают',
+            confirmPassword: 'Введеные пароли не совпадают',
           }));
         } else {
           setErrors((prevErrors) => ({

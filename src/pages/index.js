@@ -1,7 +1,8 @@
-import Layout from './Layout/Layout';
-import Main from './Main/Main';
-import Login from './Login/Login';
-import Register from './Register/Register';
-import Profile from './Profile/Profile';
+import Layout from './Layout';
+import Main from './Main';
+import Login from './Login';
+import Register from './Register';
+import Profile from './Profile';
+import NotFound from './NotFound';
 
-export { Layout, Main, Login, Register, Profile };
+export { Layout, Main, Login, Register, Profile, NotFound };
