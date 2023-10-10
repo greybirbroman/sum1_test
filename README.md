@@ -3,7 +3,6 @@
 ![react](https://img.shields.io/badge/React-black?style=for-the-badge&logo=React&logoColor=#61DAFB)
 ![redux](https://img.shields.io/badge/redux-black?style=for-the-badge&logo=redux&logoColor=#06b6d4)
 ![react router dom](https://img.shields.io/badge/router_dom_v6-black?style=for-the-badge&logo=react-router&logoColor=#06b6d4)
-![redux](https://img.shields.io/badge/router_dom_v6-black?style=for-the-badge&logo=react-router&logoColor=#06b6d4)
 ![tailwind](https://img.shields.io/badge/tailwind-black?style=for-the-badge&logo=tailwindcss&logoColor=#06b6d4)
 ![framer](https://img.shields.io/badge/framer_motion-black?style=for-the-badge&logo=framer&logoColor=#06b6d4)
 
