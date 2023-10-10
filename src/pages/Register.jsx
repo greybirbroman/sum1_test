@@ -1,6 +1,5 @@
 import React from 'react';
-import RegisterForm from '../components/RegisterForm';
-import PageTitle from '../components/PageTitle';
+import { PageTitle, RegisterForm } from '../components';
 import PaddingWrapper from '../components/hoc/PaddingWrapper';
 
 const Register = () => {

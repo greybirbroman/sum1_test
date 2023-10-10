@@ -1,13 +1,11 @@
 import React from 'react';
-import PageTitle from '../components/PageTitle';
+import { TechList, PageTitle } from '../components';
 import PaddingWrapper from '../components/hoc/PaddingWrapper';
-import TechList from '../components/TechList';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../features/selectors/authSelectors';
 
 const Main = () => {
-
-  const isLoggedIn = useSelector(getIsLoggedIn)
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
     <div className='flex flex-grow items-center flex-col gap-10 z-10'>

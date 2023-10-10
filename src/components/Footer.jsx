@@ -1,5 +1,5 @@
 import React from 'react';
-import PrimaryLink from './PrimaryLink';
+import { PrimaryLink } from '../components';
 import { socials } from '../utils/constants';
 
 const Footer = () => {

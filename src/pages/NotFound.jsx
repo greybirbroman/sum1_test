@@ -1,7 +1,6 @@
 import { ReactComponent as NotFoundImage } from '../images/404.svg';
-import { PrimaryLink } from '../components';
+import { PrimaryLink, PageTitle } from '../components';
 import PaddingWrapper from '../components/hoc/PaddingWrapper';
-import PageTitle from '../components/PageTitle';
 import useHandlers from '../utils/hooks/useHandlers';
 
 const ErrorPage = () => {

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Form from './Form';
-import Fieldset from './Fieldset';
-import PrimaryButton from './PrimaryButton';
+import { Form, Fieldset, PrimaryButton } from '../components';
 import useFormWithValidation from '../utils/hooks/useFormWithValidation';
 import { loginUserAction } from '../features/slices/auth/authActionCreator';
 import { getIsLoggedIn } from '../features/selectors/authSelectors';
@@ -22,7 +20,6 @@ const LoginForm = () => {
     };
     dispatch(loginUserAction(userCredentials));
   };
-
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -63,7 +60,12 @@ const LoginForm = () => {
         </Link>
       </span>
 
-      <PrimaryButton title='Войти' type='submit' onClick={handleSubmit} disabled={!isValid} />
+      <PrimaryButton
+        title='Войти'
+        type='submit'
+        onClick={handleSubmit}
+        disabled={!isValid}
+      />
     </Form>
   );
 };

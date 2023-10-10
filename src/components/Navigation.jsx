@@ -1,5 +1,5 @@
 import React from 'react';
-import PrimaryLink from './PrimaryLink';
+import { PrimaryLink } from '../components';
 import { ReactComponent as BurgerMenu } from '../images/burger-menu.svg';
 import { useNavigationMenu } from '../utils/hooks/useNavigationMenu';
 import { useIsMobileResolution } from '../utils/hooks/useIsMobileResolution';
@@ -7,10 +7,9 @@ import { getIsLoggedIn } from '../features/selectors/authSelectors';
 import { useSelector } from 'react-redux';
 
 const MenuList = ({ onClick, isMobile }) => {
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
-const isLoggedIn = useSelector(getIsLoggedIn)
-
-const links = [
+  const links = [
     {
       id: 'main',
       href: '/',
@@ -40,8 +39,7 @@ const links = [
           ? 'flex-col absolute right-4 border-2 border-cyan-700 rounded-lg p-2'
           : ''
       }`}
-      >
-       
+    >
       {links.map((link) => (
         <li key={link.id}>
           <PrimaryLink to={link.href} title={link.title} onClick={onClick} />
