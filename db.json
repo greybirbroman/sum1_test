@@ -17,6 +17,12 @@
       "password": "$2a$10$vLJj1DpZ9QmLF8vX51RqAedTI4ag0RKmOz9YaTSjPvIApORFOytEm",
       "name": "roman",
       "id": 3
+    },
+    {
+      "email": "login@ya.ru",
+      "password": "$2a$10$LdB.iEyeFxJ2.NhkGqBXq.L766Cc4mxis8K0TMOJYiye7PT6kyK1e",
+      "name": "romankkk1",
+      "id": 4
     }
   ]
 }

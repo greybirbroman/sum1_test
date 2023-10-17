@@ -6,13 +6,13 @@ import Fieldset from './Fieldset';
 import PrimaryButton from './PrimaryButton';
 import PrimaryLink from './PrimaryLink';
 import useFormWithValidation from '../utils/hooks/useFormWithValidation';
-import { registerUserAction } from '../features/slices/auth/authActionCreator';
+import { useActions } from '../utils/hooks/useActions';
 import { getSuccessMessage } from '../features/selectors/authSelectors';
 
 const RegisterForm = () => {
   const { values, errors, handleChange, validatePasswordMatch, isValid } =
     useFormWithValidation();
-  const dispatch = useDispatch();
+  const { registerUserAction } = useActions()
   const isSuccess = useSelector(getSuccessMessage);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const RegisterForm = () => {
       email: values.email,
       password: values.password,
     };
-    dispatch(registerUserAction(userData));
+    registerUserAction(userData);
   };
 
   return (

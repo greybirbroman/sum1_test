@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { resetFormMessageAction } from '../features/slices/auth/authActionCreator';
+import { useSelector } from 'react-redux';
 import { SpanMessage } from '../components';
 import { motion as m } from 'framer-motion';
 import { formVariants } from '../utils/motion';
@@ -9,12 +8,13 @@ import {
   getErrorMessage,
   getSuccessMessage,
 } from '../features/selectors/authSelectors';
+import { useActions } from '../utils/hooks/useActions';
 
 const Form = ({ onSubmit, title, children }) => {
-  const dispatch = useDispatch();
+  const { resetFormMessageAction } = useActions();
 
   useEffect(() => {
-    dispatch(resetFormMessageAction());
+    resetFormMessageAction();
   }, []);
 
   const errorMessage = useSelector(getErrorMessage);

@@ -11,16 +11,16 @@ import {
 
 import { authErrors } from './authErrors';
 
-export const checkIsLoggedIn = () => (dispatch) => {
-  const loggedIn = localStorage.getItem(IS_LOGGED_IN)
-  const user = JSON.parse(localStorage.getItem(CURRENT_USER))
-  if(loggedIn && user) {
-    dispatch(setUser(user))
-    dispatch(setIsLoggedIn(loggedIn))
+const checkIsLoggedIn = () => (dispatch) => {
+  const loggedIn = localStorage.getItem(IS_LOGGED_IN);
+  const user = JSON.parse(localStorage.getItem(CURRENT_USER));
+  if (loggedIn && user) {
+    dispatch(setUser(user));
+    dispatch(setIsLoggedIn(loggedIn));
   }
-}
+};
 
-export const registerUserAction = (userData) => async (dispatch) => {
+const registerUserAction = (userData) => async (dispatch) => {
   try {
     const response = await register(userData);
     if (response.accessToken) {
@@ -31,12 +31,12 @@ export const registerUserAction = (userData) => async (dispatch) => {
   }
 };
 
-export const loginUserAction = (userData) => async (dispatch) => {
+const loginUserAction = (userData) => async (dispatch) => {
   try {
     const response = await authorization(userData);
     if (response.user) {
       dispatch(setUser(response.user));
-      dispatch(setIsLoggedIn(true))
+      dispatch(setIsLoggedIn(true));
       localStorage.setItem(IS_LOGGED_IN, 'true');
       localStorage.setItem(CURRENT_USER, JSON.stringify(response.user));
     }
@@ -45,13 +45,20 @@ export const loginUserAction = (userData) => async (dispatch) => {
   }
 };
 
-export const resetFormMessageAction = () => (dispatch) => {
+const resetFormMessageAction = () => (dispatch) => {
   dispatch(setErrorMessage(''));
   dispatch(setSuccessMessage(''));
 };
-
-export const logoutAction = () => (dispatch) => {
+const logoutAction = () => (dispatch) => {
   localStorage.removeItem(CURRENT_USER);
   localStorage.removeItem(IS_LOGGED_IN);
   dispatch(logoutUser());
+};
+
+export {
+  checkIsLoggedIn,
+  registerUserAction,
+  loginUserAction,
+  resetFormMessageAction,
+  logoutAction,
 };

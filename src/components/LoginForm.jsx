@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Form, Fieldset, PrimaryButton } from '../components';
 import useFormWithValidation from '../utils/hooks/useFormWithValidation';
-import { loginUserAction } from '../features/slices/auth/authActionCreator';
 import { getIsLoggedIn } from '../features/selectors/authSelectors';
+import { useActions } from '../utils/hooks/useActions';
 
 const LoginForm = () => {
   const { values, errors, handleChange, isValid } = useFormWithValidation();
+  const { loginUserAction } = useActions()
   const isLoggedIn = useSelector(getIsLoggedIn);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const LoginForm = () => {
       email: values.email,
       password: values.password,
     };
-    dispatch(loginUserAction(userCredentials));
+    loginUserAction(userCredentials)
   };
 
   useEffect(() => {
